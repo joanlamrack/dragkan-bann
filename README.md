@@ -1,21 +1,6 @@
 # dragkan-bann
 
-## Project setup
-```
-npm install
-```
+project of kanban using vue component and firebase
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
+[LIVE VERSION](https://dragkan-bann.firebaseapp.com/)
 ```

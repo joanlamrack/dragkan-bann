@@ -5,9 +5,9 @@
 		  Loading.....
 	  </div>
 	  <div class="row" v-else>
-		  <List :kanbandata="data.Todo" @move-after="moveTask" @move-previous="moveTask" :kanbantitle="'Todo'"></List>
-		  <List :kanbandata="data.Doing" @move-after="moveTask" @move-previous="moveTask" :kanbantitle="'Doing'"></List>
-		  <List :kanbandata="data.Done" @move-after="moveTask" @move-previous="moveTask" :kanbantitle="'Done'"></List>
+		  <List :kanbandata="data.Todo" @delete="" @move-after="moveTask" @move-previous="moveTask" :kanbantitle="'Todo'"></List>
+		  <List :kanbandata="data.Doing" @delete="" @move-after="moveTask" @move-previous="moveTask" :kanbantitle="'Doing'"></List>
+		  <List :kanbandata="data.Done" @delete="" @move-after="moveTask" @move-previous="moveTask" :kanbantitle="'Done'"></List>
 	  </div>
 	  
   </div>
@@ -59,6 +59,10 @@ export default {
 	  },
 	  updatedata:function(){
 		  db.ref(`/`).set(this.data)
+	  },
+	  delete:function({index, from}){
+		  this.data[from].list.splice(index,1)
+		  this.updatedata();
 	  }
   },
   mounted(){

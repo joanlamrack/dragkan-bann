@@ -12,6 +12,7 @@
 						<p class="card-text">{{kanbanitem.content}}</p>
 						
 					</div>
+					<button type="button" @click="deleteItem(key)" class="btn btn-danger">Delete</button>
 					<button type="button float-right" v-if="!!kanbandata.next" @click="moveToAfter(key)" class="btn btn-primary float-right">></button>
 				</div>
 					
@@ -40,6 +41,9 @@ export default {
 			  from:this.kanbantitle,
 			  destination:this.kanbandata.previous
 		})
+	  },
+	  deleteItem(index){
+		  this.$emit("delete", {index:index, from:this.kanbantitle})
 	  }
   }
 }
@@ -63,6 +67,6 @@ export default {
 
 	.float-right{
 		margin-left:95%;
-		top:-70px;
+		top:-50%
 	}
 </style>
